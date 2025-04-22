@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<string.h>
 
 typedef struct SingleLinkedList
 {
@@ -16,7 +17,7 @@ int main()
 {
     sl *start = NULL;
     start = createNodes(start);
-    display(start);
+   // display(start);
     swapNodeDisplay(start);
 
     return(0);
@@ -62,5 +63,14 @@ void display(sl *head)
 
 void swapNodeDisplay(sl *head)
 {
+
+    sl *startNode = head;
+    sl *nextNode = head->next;
+    sl *tempNode = NULL;
+
+    nextNode->no = startNode->no;
+    printf("\nNo: %d And Name: %s", startNode->no, startNode->name);
+    printf("\nNo in Next: %d And Name: %s", nextNode->no, nextNode->name);
+    printf("\ntemp No: %d And name: %s", tempNode->no, tempNode->name);
     
 }
