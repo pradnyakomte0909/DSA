@@ -17,8 +17,11 @@ int main()
 {
     sl *start = NULL;
     start = createNodes(start);
-   // display(start);
+    printf("\nBefore Swapping The Elements:");
+    display(start);
     swapNodeDisplay(start);
+    printf("\nAfter Swapping The Elements:");
+    display(start);
 
     return(0);
 }
@@ -54,7 +57,6 @@ sl *createNodes(sl *head)
 
 void display(sl *head)
 {
-    printf("\nBefore Swapping Displaying Nodes");
     for(; head != NULL; head = head->next)
     {
         printf("\nNo: %d And Name: %s", head->no, head->name);
@@ -63,14 +65,41 @@ void display(sl *head)
 
 void swapNodeDisplay(sl *head)
 {
+    // sl *nextNode, *tempNode;
+    // tempNode = head;
+    // for(; head != NULL; head = nextNode->next)
+    // {   
+    //     nextNode = head->next;
 
-    sl *startNode = head;
-    sl *nextNode = head->next;
-    sl *tempNode = NULL;
+    //     if(nextNode == NULL)
+    //     break;
 
-    nextNode->no = startNode->no;
-    printf("\nNo: %d And Name: %s", startNode->no, startNode->name);
-    printf("\nNo in Next: %d And Name: %s", nextNode->no, nextNode->name);
-    printf("\ntemp No: %d And name: %s", tempNode->no, tempNode->name);
-    
+    //     tempNode->no = head->no;
+    //     strcpy(tempNode->name, head->name);
+
+    //     head->no = nextNode->no;
+    //     strcpy(head->name, nextNode->name);
+
+    //     nextNode->no = tempNode->no;
+    //     strcpy(nextNode->name, tempNode->name);
+    // }
+
+    // Efficient Logic
+    sl *nextNode, tempNode;
+    for(; head != NULL; head = nextNode->next)
+    {   
+        nextNode = head->next;
+
+        if(nextNode == NULL)
+        break;
+
+        tempNode.no = head->no;
+        strcpy(tempNode.name, head->name);
+
+        head->no = nextNode->no;
+        strcpy(head->name, nextNode->name);
+
+        nextNode->no = tempNode.no;
+        strcpy(nextNode->name, tempNode.name);
+    }
 }
