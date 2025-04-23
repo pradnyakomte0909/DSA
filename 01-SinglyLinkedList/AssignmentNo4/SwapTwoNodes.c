@@ -2,6 +2,7 @@
 #include<stdlib.h>
 #include<string.h>
 
+// Structure Declaration
 typedef struct SingleLinkedList
 {
     int no;
@@ -9,23 +10,29 @@ typedef struct SingleLinkedList
     struct SingleLinkedList *next;
 }sl;
 
+// Function Declarations
 sl *createNodes(sl*);
 void display(sl*);
 void swapNodeDisplay(sl*);
 
+// Entry Point Function
 int main()
 {
     sl *start = NULL;
+
     start = createNodes(start);
+
     printf("\nBefore Swapping The Elements:");
     display(start);
     swapNodeDisplay(start);
+
     printf("\nAfter Swapping The Elements:");
     display(start);
 
     return(0);
 }
 
+// Create Node Function
 sl *createNodes(sl *head)
 {
     sl *newNode, *lastNode;
@@ -55,6 +62,7 @@ sl *createNodes(sl *head)
     return(head);
 }
 
+// Display Node Function
 void display(sl *head)
 {
     for(; head != NULL; head = head->next)
@@ -63,6 +71,7 @@ void display(sl *head)
     }
 }
 
+// Swapping Node's data
 void swapNodeDisplay(sl *head)
 {
     // sl *nextNode, *tempNode;
@@ -101,5 +110,17 @@ void swapNodeDisplay(sl *head)
 
         nextNode->no = tempNode.no;
         strcpy(nextNode->name, tempNode.name);
+    }
+}
+
+void freeList(sl *head)
+{
+    sl *tempNode;
+
+    while(head != NULL)
+    {
+        tempNode = head;
+        head = head->next;
+        head = head->next;
     }
 }
