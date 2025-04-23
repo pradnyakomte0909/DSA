@@ -10,18 +10,22 @@ typedef struct Student
     struct Student *next;
 }sl;
 
+// Function Declaration
 sl *createList(sl*);
 void display(sl*);
 
+// Entry Point Function
 int main()
 {
     sl *start = NULL;
+
     start = createList(start);
     display(start);
 
     return(0);
 }
 
+// Create Node Function
 sl *createList(sl *head)
 {
     head = (sl*)malloc(sizeof(sl));
@@ -37,6 +41,7 @@ sl *createList(sl *head)
     return(head);
 }
 
+// Displaying Node Function
 void display(sl *head)
 {
     printf("\nStudent Details Are:\n");
